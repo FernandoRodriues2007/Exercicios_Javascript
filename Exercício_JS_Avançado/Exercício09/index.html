@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="user" placeholder="Digite seu nome..." />
+    <p id="msg"></p>
+
+    <script>
+        const usuariosExistentes = ["admin", "ana", "carlos"];
+        const input = document.getElementById("user");
+        const msg = document.getElementById("msg");
+
+        input.addEventListener("input", () => {
+            const nome = input.value.trim();
+            msg.textContent = "Verificando...";
+            clearTimeout(input._timer);
+
+            input._timer = setTimeout(() => {
+                if (usuariosExistentes.includes(nome.toLowerCase())) {
+                    msg.textContent = "Nome já em uso ";
+                } else {
+                    msg.textContent = "Disponível ";
+                }
+            }, 2000);
+        });
+    </script>
+
+</body>
+
+</html>

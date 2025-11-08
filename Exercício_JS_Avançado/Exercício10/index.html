@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark {
+            background: #121212;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggle">Alternar tema</button>
+
+    <script>
+        const body = document.body;
+        const botao = document.getElementById("toggle");
+
+    
+        if (localStorage.getItem("tema") === "escuro") {
+            body.classList.add("dark");
+        }
+
+        botao.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const tema = body.classList.contains("dark") ? "escuro" : "claro";
+            localStorage.setItem("tema", tema);
+        });
+    </script>
+
+
+
+</body>
+
+</html>
